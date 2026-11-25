@@ -84,8 +84,9 @@ def translate_text(text, target_lang, speech_output, history):
         if speech_output:
             tts_lang = {"zh": "zh-CN", "he": "iw"}.get(target_lang, target_lang)  # gTTS's own codes
             if tts_lang in tts_langs():
-                gTTS(translated_text, lang=tts_lang).save("output.mp3")
-                audio_file = "output.mp3"
+                with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as f:  # one file per request
+                    audio_file = f.name
+                gTTS(translated_text, lang=tts_lang).save(audio_file)
             else:
                 note = f"\n\n(Speech output isn't available for {LANGUAGES[target_lang]}.)"
 
