@@ -11,6 +11,8 @@ pinned: false
 
 # 🌍 LinguaCast
 
+**🚀 Try it live: [huggingface.co/spaces/prajyot2003/LinguaCast](https://huggingface.co/spaces/prajyot2003/LinguaCast)**
+
 LinguaCast is an AI-powered translation app with:
 - Automatic language detection
 - Direct any-to-any translation (Meta NLLB-200)
